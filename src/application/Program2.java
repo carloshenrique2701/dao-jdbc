@@ -15,7 +15,7 @@ public class Program2 {
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		
 		System.out.println("===Teste 1: Department findById===");
-		Department d1 = departmentDao.findById(2);
+		Department d1 = departmentDao.findById(8);
 		System.out.println(d1);
 
 		System.out.println("\n===Teste 2: Department findAll===");
@@ -23,7 +23,19 @@ public class Program2 {
 		for (Department d : d2) {
 			System.out.println(d);
 		}
-
+		
+		System.out.println("\n===Teste 3: Department insert===");
+		Department d3 = new Department(null, "school supplies");
+		departmentDao.insert(d3);
+		System.out.println("Inserted! New id: " + d3.getId());
+		
+		System.out.println("\n===Teste 3: Department insert===");
+		d3 = departmentDao.findById(8);
+		d3.setName("Office");
+		departmentDao.update(d3);
+		System.out.println("Updated!");
+		
+		
 	}
 
 }
